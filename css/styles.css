@@ -343,9 +343,10 @@ footer p {
 @media(max-width:992px) {
 
     body {
-        font-size: medium;
+        display: block;
+        font-size:larger;
         background-repeat:repeat-y;
-        background-size:auto;
+        background-size:100%;
     }
 
     button {
