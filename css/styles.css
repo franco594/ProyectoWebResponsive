@@ -29,9 +29,9 @@ section {
     z-index: 50;
 }
 
-.contenedor {
-    max-height: 100%;
-    display: block;
+#contenedor {
+    max-height: 100vh;
+    display: grid;
     justify-content: center;
     align-items: center;
 }
@@ -113,7 +113,7 @@ i {
 /* Reglas*/
 
 .reglas-contenedor {
-    max-height: 300px; /* Establece una altura fija para el contenedor */
+    max-height: 40vh; /* Establece una altura fija para el contenedor */
     overflow-y: auto; /* Activa el scroll vertical */
     padding: 5px;
     border: 3px solid #18395f; /* Borde opcional para visibilidad */
@@ -262,15 +262,16 @@ input[type="radio"] {
 
 
 
-
-
-
 #boton-personaje {
     grid-column: span 2; /* El botón ocupará todo el ancho de ambas columnas */
     margin-top: 20px;
 }
 
 /* Juego */
+
+.btn-atq {
+    margin: 10px;
+}
 
 #boton-reiniciar {
     background-color: #A23B3B; 
@@ -407,6 +408,10 @@ footer p {
 
     button {
         max-width: auto;
+    }
+
+    .contenedor {
+        max-height: 100vh;
     }
 
     #pj-container {

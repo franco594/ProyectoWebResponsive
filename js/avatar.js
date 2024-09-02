@@ -15,15 +15,16 @@ const mostrarBtnComenzar = document.getElementById('boton-comenzar');
 const textoSeleccionar = document.getElementById('pj-select');
 const textoReglas = document.getElementById('texto-reglas');
 const seccionReglas = document.getElementById('reglas');
-const mostrarAtaque = document.getElementById('seleccionar-ataque'); // Asegúrate de que este ID sea correcto
-const mostrarMensaje = document.getElementById('mensajes'); // Asegúrate de que este ID sea correcto
+const mostrarAtaque = document.getElementById('seleccionar-ataque'); 
+const mostrarMensaje = document.getElementById('mensajes'); 
 const mostrarSeleccion = document.getElementById('seleccionar-personaje');
+const sectionMensaje = document.getElementById('mensajes');
+const mostrarBtnReglas = document.getElementById('boton-reglas');
+const mostrarReglas = document.getElementById('reglas');
+const botonPersonajeJugador = document.getElementById('boton-personaje');
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Mostrar/ocultar reglas del juego
-    const mostrarBtnReglas = document.getElementById('boton-reglas');
-    const textoReglas = document.getElementById('texto-reglas');
     
     mostrarBtnReglas.addEventListener('click', function() {
         if (textoReglas.style.display === 'block') {
@@ -33,10 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Mostrar/ocultar selección de personajes
-    const mostrarBtnComenzar = document.getElementById('boton-comenzar');
-    const textoSeleccionar = document.getElementById('pj-select');
-    const mostrarReglas = document.getElementById('reglas');
+    // Mostrar/ocultar selección de personaje
   
     mostrarBtnComenzar.addEventListener('click', function() {
         if (textoSeleccionar.style.display === 'block') {
@@ -88,7 +86,7 @@ setInterval(crearPetalos, 400);
 
 function iniciarJuego(){
     deshabilitarBotonesAtaque();
-    let botonPersonajeJugador = document.getElementById('boton-personaje');
+   
     botonPersonajeJugador.addEventListener('click', seleccionarPersonajeJugador);
 
     // Inicializar las vidas en la interfaz
@@ -104,7 +102,6 @@ function iniciarJuego(){
 function seleccionarPersonajeJugador() {
     let spanPersonajeJugador = document.getElementById("personaje-jugador");
     
-
     // Verificar qué personaje está seleccionado
     document.querySelectorAll('input[name="personaje"]').forEach(personaje => {
         if (personaje.checked) {
@@ -150,7 +147,6 @@ function seleccionarPersonajeEnemigo(){
 
 function mostrarJuego() {
     
-
     // Asegúrate de que ambos elementos existen y se muestran correctamente
     if (mostrarAtaque && mostrarMensaje) {
         mostrarAtaque.style.display = 'block';
@@ -244,10 +240,15 @@ function habilitarBotonesAtaque() {
 }
 
 function crearMensaje(){
-    let sectionMensaje = document.getElementById('mensajes');
+    
     let parrafo = document.createElement('p');
     parrafo.innerHTML= `Tu personaje ${personajeSeleccionado} atacó con ${ataqueJugador}, el personaje enemigo ${personajeEnemigo} atacó con ${ataqueEnemigo}, el resultado es: ${resultado}`;
     sectionMensaje.appendChild(parrafo);
+    scrollToBottom();
+}
+
+function scrollToBottom() {
+    mostrarMensaje.scrollTop = mostrarMensaje.scrollHeight;
 }
 
 function numeroRandom(min, max){
